@@ -1,0 +1,113 @@
+2026-05-13 13:10:29 | INFO     | etl.run_etl               | ╔══════════════════════════════════════════════════╗
+2026-05-13 13:10:29 | INFO     | etl.run_etl               | ║   WORKFORCE ANALYTICS — ETL PIPELINE START      ║
+2026-05-13 13:10:29 | INFO     | etl.run_etl               | ║   Started: 2026-05-13 13:10:29                      ║
+2026-05-13 13:10:29 | INFO     | etl.run_etl               | ╚══════════════════════════════════════════════════╝
+
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor | =======================================================
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor | EXTRACT PHASE — Reading all CSV files
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor | =======================================================
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor | Extracting 'dim_company' from dim_company.csv ...
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor |   └─ Extracted 119 rows × 5 columns
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor | Extracting 'dim_role' from dim_role.csv ...
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor |   └─ Extracted 75 rows × 5 columns
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor | Extracting 'dim_skill' from dim_skill.csv ...
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor |   └─ Extracted 102 rows × 4 columns
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor | Extracting 'dim_location' from dim_location.csv ...
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor |   └─ Extracted 68 rows × 5 columns
+2026-05-13 13:10:29 | INFO     | etl.extract.csv_extractor | Extracting 'fact_job_postings' from fact_job_postings.csv ...
+2026-05-13 13:10:30 | INFO     | etl.extract.csv_extractor |   └─ Extracted 500,000 rows × 16 columns
+2026-05-13 13:10:30 | INFO     | etl.extract.csv_extractor | Extracting 'job_skills_bridge' from job_skills_bridge.csv ...
+2026-05-13 13:10:32 | INFO     | etl.extract.csv_extractor |   └─ Extracted 2,575,124 rows × 2 columns
+2026-05-13 13:10:32 | INFO     | etl.extract.csv_extractor | Extract complete — 6 tables loaded
+
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer | =======================================================
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer | TRANSFORM PHASE — Cleaning and validating data
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer | =======================================================
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer | Transforming dim_company ...
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer |   └─ 119 → 119 rows after cleaning
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer | Transforming dim_role ...
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer |   └─ 75 → 75 rows after cleaning
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer | Transforming dim_skill ...
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer |   └─ 102 → 102 rows after cleaning
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer | Transforming dim_location ...
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer |   └─ 68 → 68 rows after cleaning
+2026-05-13 13:10:32 | INFO     | etl.transform.data_transformer | Transforming fact_job_postings ...
+2026-05-13 13:10:33 | INFO     | etl.transform.data_transformer |   └─ 500,000 → 500,000 rows after cleaning
+2026-05-13 13:10:33 | INFO     | etl.transform.data_transformer | Transforming job_skills_bridge ...
+2026-05-13 13:10:35 | INFO     | etl.transform.data_transformer |   └─ 2,575,124 → 2,575,124 rows after cleaning
+2026-05-13 13:10:35 | INFO     | etl.transform.data_transformer | Transform complete — 6 tables cleaned
+
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        | =======================================================
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        | LOAD PHASE — Writing data to PostgreSQL
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        | =======================================================
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        | 
+Loading: dim_company (119 rows)
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   Truncated table: dim_company
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   Loading 119 rows in 1 batches of 500 ...
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |     Batch   1/1 |      119/119 rows | 100.0% | 0s elapsed
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   └─ ✅ Loaded 119 rows in 0s
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        | 
+Loading: dim_role (75 rows)
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   Truncated table: dim_role
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   Loading 75 rows in 1 batches of 500 ...
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |     Batch   1/1 |       75/75 rows | 100.0% | 0s elapsed
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   └─ ✅ Loaded 75 rows in 0s
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        | 
+Loading: dim_skill (102 rows)
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   Truncated table: dim_skill
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   Loading 102 rows in 1 batches of 500 ...
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |     Batch   1/1 |      102/102 rows | 100.0% | 0s elapsed
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   └─ ✅ Loaded 102 rows in 0s
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        | 
+Loading: dim_location (68 rows)
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   Truncated table: dim_location
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   Loading 68 rows in 1 batches of 500 ...
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |     Batch   1/1 |       68/68 rows | 100.0% | 0s elapsed
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   └─ ✅ Loaded 68 rows in 0s
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        | 
+Loading: fact_job_postings (500,000 rows)
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   Truncated table: fact_job_postings
+2026-05-13 13:10:35 | INFO     | etl.load.db_loader        |   Loading 500,000 rows in 50 batches of 10,000 ...
+2026-05-13 13:11:47 | INFO     | etl.load.db_loader        |     Batch  10/50 |  100,000/500,000 rows |  20.0% | 72s elapsed
+2026-05-13 13:13:05 | INFO     | etl.load.db_loader        |     Batch  20/50 |  200,000/500,000 rows |  40.0% | 150s elapsed
+2026-05-13 13:14:23 | INFO     | etl.load.db_loader        |     Batch  30/50 |  300,000/500,000 rows |  60.0% | 227s elapsed
+2026-05-13 13:15:15 | INFO     | etl.load.db_loader        |     Batch  40/50 |  400,000/500,000 rows |  80.0% | 280s elapsed
+2026-05-13 13:16:06 | INFO     | etl.load.db_loader        |     Batch  50/50 |  500,000/500,000 rows | 100.0% | 331s elapsed
+2026-05-13 13:16:06 | INFO     | etl.load.db_loader        |   └─ ✅ Loaded 500,000 rows in 331s
+2026-05-13 13:16:06 | INFO     | etl.load.db_loader        | 
+Loading: job_skills_bridge (2,575,124 rows)
+2026-05-13 13:16:06 | INFO     | etl.load.db_loader        |   Truncated table: job_skills_bridge
+2026-05-13 13:16:06 | INFO     | etl.load.db_loader        |   Loading 2,575,124 rows in 52 batches of 50,000 ...
+2026-05-13 13:17:18 | INFO     | etl.load.db_loader        |     Batch  10/52 |  500,000/2,575,124 rows |  19.4% | 71s elapsed
+2026-05-13 13:18:28 | INFO     | etl.load.db_loader        |     Batch  20/52 | 1,000,000/2,575,124 rows |  38.8% | 142s elapsed
+2026-05-13 13:19:40 | INFO     | etl.load.db_loader        |     Batch  30/52 | 1,500,000/2,575,124 rows |  58.2% | 213s elapsed
+2026-05-13 13:20:51 | INFO     | etl.load.db_loader        |     Batch  40/52 | 2,000,000/2,575,124 rows |  77.7% | 284s elapsed
+2026-05-13 13:22:02 | INFO     | etl.load.db_loader        |     Batch  50/52 | 2,500,000/2,575,124 rows |  97.1% | 355s elapsed
+2026-05-13 13:22:12 | INFO     | etl.load.db_loader        |     Batch  52/52 | 2,575,124/2,575,124 rows | 100.0% | 365s elapsed
+2026-05-13 13:22:12 | INFO     | etl.load.db_loader        |   └─ ✅ Loaded 2,575,124 rows in 365s
+2026-05-13 13:22:12 | INFO     | etl.load.db_loader        | 
+Load complete — 6 tables written to PostgreSQL
+
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | 
+╔══════════════════════════════════════════════════╗
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║           ETL PIPELINE — EXECUTION SUMMARY      ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ╠══════════════════════════════════════════════════╣
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  Table                         Rows Loaded         ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ╠══════════════════════════════════════════════════╣
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  dim_company                           119         ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  dim_role                               75         ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  dim_skill                             102         ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  dim_location                           68         ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  fact_job_postings                 500,000         ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  job_skills_bridge               2,575,124         ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ╠══════════════════════════════════════════════════╣
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  TOTAL ROWS                      3,075,488         ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ╠══════════════════════════════════════════════════╣
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  Extract time  :    2s                            ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  Transform time:    2s                            ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  Load time     :  697s                            ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  Total time    :  702s                            ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ╠══════════════════════════════════════════════════╣
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ║  STATUS: ✅ PIPELINE COMPLETED SUCCESSFULLY     ║
+2026-05-13 13:22:12 | INFO     | etl.run_etl               | ╚══════════════════════════════════════════════════╝
+
